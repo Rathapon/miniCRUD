@@ -1,0 +1,14 @@
+marquee {
+      font-size: 30px;
+      font-weight: 800;
+      color: #6b40e1;
+      font-family: sans-serif;
+}
+
+body {
+      background-color: rgb(232, 232, 232);
+      color: #ffffff;
+      min-height: 100vh;
+      margin: 0%;
+      font-family: cursive ;
+}

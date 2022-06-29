@@ -1,0 +1,26 @@
+<div class="container-xl">
+    <p-card class="p-col-6" [style]="{'width': '40rem'}">
+        <h2>Update Form</h2>
+
+        <div class="row g-2" *ngFor="let mList of mFormList">
+            <label for="module_id">module_id:</label>
+            <input class="w-75" type="text" id="module_id" placeholder="{{mList.module_id}}"
+                [(ngModel)]="mForm.module_id">
+
+            <label for="name">Name module:</label>
+            <input class="w-75" type="text" id="name" placeholder="{{mList.name}}" [(ngModel)]="mForm.name" >
+
+            <label for="detail">Detail:</label>
+            <input class="w-75" type="text" id="detail" placeholder="{{mList.detail}}" [(ngModel)]="mForm.detail">
+
+
+        </div>
+        <br>
+        <p-toast></p-toast>
+        <p-confirmPopup></p-confirmPopup>
+        <button class="btn-success btn btn-sm" (click)="confirmUpd($event)">save</button>
+&nbsp;
+        <button class="btn-danger btn btn-sm" (click)="backHome()">cancel</button>
+    </p-card>
+
+</div>

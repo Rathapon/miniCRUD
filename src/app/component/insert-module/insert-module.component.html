@@ -1,0 +1,43 @@
+<div class="container-xl">
+    <p-blockUI [blocked]="blockedDocument">
+        <p-progressSpinner></p-progressSpinner>
+    </p-blockUI>
+    <div class="row p-5">
+        <div class="col">
+            <p-card class="col-6" [style]="{'width': '40rem'}">
+                <h2>กรอกรายชื่อแผนก</h2>
+                <div class="row g-2">
+                    <label for="module">ชื่อแผนก : </label>
+                    <input class="w-75" type="text" id="module" [(ngModel)]="mName">
+                    <p-toast></p-toast>
+                    <p-confirmPopup></p-confirmPopup>
+                    <button class="btn-success btn btn-sm center-align w-25" (click)="confirmAddModule($event)">บันทึก</button>
+                </div>
+            </p-card>
+        </div>
+        <div class="col">
+            <p-card class="col-6">
+                <table class="table table-striped table-hover table-bordered table-content">
+                    <thead>
+                        <tr class="center-align">
+                            <th>ID แผนก</th>
+                            <th>ชื่อแผนก</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mName of moduleList" class="center-align">
+                            <td class="col-sm-1">{{mName.id}}</td>
+                            <td class="col-sm-4">{{mName.name}}</td>
+                            <td class="col-sm-1">
+                                <p-toast></p-toast>
+                                <p-confirmPopup></p-confirmPopup>
+                                <button (click)="confirmDel($event, mName.id)" type="button"
+                                    class="btn btn-danger">ลบ<i class='fas fa-trash-alt delete'></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p-card>
+        </div>
+    </div>
+</div>

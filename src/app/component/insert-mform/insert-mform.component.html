@@ -1,0 +1,47 @@
+<div class="p-col-6">
+    <p-card [style]="{'width': '40rem'}" header="ลงทะเบียนแบบฟอร์ม HOSxP">
+        <div class="row">
+            <!-- col แรกd -->
+            <div class="col">
+                <label for="formSelect">เลือกแผนก</label>
+                <select id="formSelect" class="form-select" aria-label="Default select example"
+                    [(ngModel)]="mForm.fmodule">
+                    <option *ngFor="let mList of moduleList" value="{{mList.id}}">{{mList.name}}</option>
+
+                </select>
+            </div>
+            <!-- col สอง -->
+            <div class="col">
+                <div class="row g-2">
+                    <div class="col">
+                        <label for="formHosxp">กรอกแบบฟอร์ม</label>
+                        <span class="p-float-label" id="formHosxp">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="mForm.formval">
+                            <label for="float-input"></label>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <label for="fDesc">รายละเอียด</label>
+                        <div class="row">
+                        </div>
+                        <textarea id="fDesc" rows="5" cols="22" pInputTextarea [(ngModel)]="mForm.formdesc"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <!-- col สาม -->
+            <div class="col">
+                <label for="okSave">กดเพื่อบันทึก</label>
+                <div class="row">
+                    <p-toast></p-toast>
+                    <p-confirmPopup></p-confirmPopup>
+                    <p-button id="okSave" label="บันทึก" icon="pi pi-check" iconPos="right"
+                        (click)="confirmRegForm($event)">
+                    </p-button>
+                </div>
+            </div>
+        </div>
+
+    </p-card>
+
+</div>

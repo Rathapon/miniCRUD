@@ -1,0 +1,77 @@
+<div class="container-xl"><br>
+  <p-blockUI [blocked]="blockedDocument">
+    <p-progressSpinner></p-progressSpinner>
+  </p-blockUI>
+  <p-card>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4><b>แบบฟอร์ม</b></h4>
+    </div>
+    <div class="col-sm-5">
+      <input class="form-control" type="text" name="name" [(ngModel)]="name" placeholder="ใส่ชื่อแบบฟอร์มที่ต้องการค้นหา">
+    </div>
+    <div class="col-sm-1">
+      <button class="btn btn-success" (click)="addForm()">
+        <i class='fas fa-plus-circle'></i><span>เพิ่ม</span>
+      </button>
+    </div>
+    <div class="col-8">
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+
+            </div>
+          </div>
+          <br>
+          <table class="table table-striped table-hover table-bordered table-content">
+            <thead>
+              <tr class="center-align">
+                <th>แผนก</th>
+                <th>แบบฟอร์ม</th>
+                <th>รายละเอียด</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mForm of formList | nameFilter:name" class="center-align">
+                <td class="col-sm-1">{{ mForm.module_id }}</td>
+                <td class="col-sm-2">{{ mForm.name }}</td>
+                <td class="col-sm-3">{{ mForm.detail }}</td>
+                <td class="col-sm-2">
+
+                  <a [routerLink]="['/edit-form', mForm.id]" class="btn btn-primary">edit<i
+                      class="fa fa-edit edit"></i></a>&nbsp;
+                  <p-toast></p-toast>
+                  <p-confirmPopup></p-confirmPopup>
+                  <button (click)="confirmDel($event,mForm.id)" type="button" class="btn btn-danger">Delete<i
+                      class='fas fa-trash-alt delete'></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <br>
+
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>ID แผนก</th>
+              <th>ชื่อแผนก</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mName of moduleList" class="center-align">
+              <td class="col-sm-1">{{mName.id}}</td>
+              <td class="col-sm-3">{{mName.name}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+</p-card>
+</div>
